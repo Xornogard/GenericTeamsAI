@@ -14,6 +14,8 @@
 
 ADanielFoolsTestCharacter::ADanielFoolsTestCharacter()
 {
+	m_TeamID = new FGenericTeamId();
+
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
 
@@ -45,6 +47,14 @@ ADanielFoolsTestCharacter::ADanielFoolsTestCharacter()
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
+}
+
+ADanielFoolsTestCharacter::~ADanielFoolsTestCharacter()
+{
+	if (m_TeamID != NULL)
+	{
+		delete m_TeamID;
+	}
 }
 
 //////////////////////////////////////////////////////////////////////////

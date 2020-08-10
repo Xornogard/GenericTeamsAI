@@ -31,8 +31,8 @@ class DANIELFOOLSTEST_API ATeamsAIController : public AAIController
 
 public:
 
-	UPROPERTY(EditAnywhere)
-		UTeamsDataTable* TeamsDataTable;
+	ATeamsAIController();
+	~ATeamsAIController();
 
 	UFUNCTION(BlueprintCallable)
 		void SetTeamName(FTeamsData data);

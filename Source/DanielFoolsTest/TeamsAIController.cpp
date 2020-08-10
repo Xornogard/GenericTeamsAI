@@ -3,11 +3,24 @@
 
 #include "TeamsAIController.h"
 
+ATeamsAIController::ATeamsAIController()
+{
+	m_TeamID = new FGenericTeamId();
+}
+
+ATeamsAIController::~ATeamsAIController()
+{
+	if (m_TeamID != NULL)
+	{
+		delete m_TeamID;
+	}
+}
+
 void ATeamsAIController::SetTeamName(FTeamsData data)
 {
-	this->m_TeamName = data.TeamName;
+	m_TeamName = data.TeamName;
 
-	if (m_TeamID != nullptr && m_TeamID->GetId() != data.TeamID)
+	if (m_TeamID != NULL && m_TeamID->GetId() != data.TeamID)
 	{
 		delete m_TeamID;
 		m_TeamID = new FGenericTeamId(data.TeamID);

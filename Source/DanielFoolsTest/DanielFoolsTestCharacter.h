@@ -23,6 +23,7 @@ class ADanielFoolsTestCharacter : public ACharacter, public ANameDataGenericTeam
 	class UCameraComponent* FollowCamera;
 public:
 	ADanielFoolsTestCharacter();
+	~ADanielFoolsTestCharacter();
 
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
@@ -31,9 +32,6 @@ public:
 	/** Base look up/down rate, in deg/sec. Other scaling may affect final rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
-
-	UPROPERTY(EditAnywhere)
-		UTeamsDataTable* TeamsDataTable;
 
 	UFUNCTION(BlueprintCallable)
 		void SetTeamName(FTeamsData data);
