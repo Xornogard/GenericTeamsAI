@@ -30,3 +30,16 @@ void ATeamsAIController::SetTeamName(FTeamsData data)
 		m_TeamID = new FGenericTeamId(data.TeamID);
 	}
 }
+
+ETeamAttitude::Type ATeamsAIController::GetTeamAttitudeTowards(const AActor& Other) const
+{
+	if (const APawn* OtherPawn = Cast<APawn>(&Other)) 
+	{
+		if (const IGenericTeamAgentInterface* TeamAgent = Cast<IGenericTeamAgentInterface>(OtherPawn->GetController()))
+		{
+			return FGenericTeamId::GetAttitude(*m_TeamID, TeamAgent->GetGenericTeamId());
+		}
+	}
+
+	return ETeamAttitude::Neutral;
+}

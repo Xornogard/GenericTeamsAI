@@ -38,6 +38,7 @@ public:
 		void SetTeamName(FTeamsData data);
 
 	virtual FGenericTeamId GetGenericTeamId() const { return *m_TeamID; }
+	ETeamAttitude::Type GetTeamAttitudeTowards(const AActor& Other) const override;
 
 private:
 
